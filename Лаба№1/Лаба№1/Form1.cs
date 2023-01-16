@@ -16,5 +16,11 @@ namespace Лаба_1
             //Сумма координат
             textBox1.Text = (e.X + e.Y).ToString();
         }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            Form2 frm = new Form2();
+            frm.ShowDialog();
+        }
     }
 }
