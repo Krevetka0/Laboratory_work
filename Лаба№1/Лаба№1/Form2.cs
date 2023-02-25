@@ -23,7 +23,7 @@ namespace Лаба_1
             double y = Convert.ToDouble(textBox4.Text);
 
             double U = Math.Sqrt(Math.Abs(f - e / w) + Math.Abs(Math.Pow(Math.Sin(e / w), 2) + Math.Cos(y)));
-            Text = string.Format("Результат: {0}", U);
+            Text = string.Format("Результат: {0}", Math.Round(U, 4));
 
         }
 

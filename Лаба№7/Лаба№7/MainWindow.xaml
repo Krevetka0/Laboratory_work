@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Лаба_7.MainWindow"
+        Title="Ответ: " Height="253" Width="331" WindowStyle="ThreeDBorderWindow" FontSize="14" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <WrapPanel Height="153" Width="329">
+            <Image Source="C:\Users\maryv\OneDrive\Рабочий стол\Шарага\Приклад\Лабы\Лаба№7\Лаба№7\formula.png" Height="88" Width="293" Margin="10,10,10,10"/>
+            <Label Content="N" VerticalAlignment="Center"/>
+            <ComboBox MinWidth="45" VerticalAlignment="Center" x:Name="ComboN" SelectedIndex ="1">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="5"/>
+            </ComboBox>
+            <Label Content="K" VerticalAlignment="Center"/>
+            <ComboBox MinWidth="45" VerticalAlignment="Center" x:Name="ComboK" SelectedIndex ="0">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="5"/>
+            </ComboBox>
+            <Label Content="x" VerticalAlignment="Center"/>
+            <TextBox Width="45" Height="25"  VerticalAlignment="Center" x:Name="txtX"/>
+            <Label Content="y" VerticalAlignment="Center"/>
+            <TextBox Width="45" Height="25"  VerticalAlignment="Center" x:Name="txtY"/>
+            <Label Content="f" VerticalAlignment="Center"/>
+            <TextBox Width="45" Height="25"  VerticalAlignment="Center" x:Name="txtF"/>
+        </WrapPanel>
+        <Button Content="Высчитать" Margin ="30,10" Padding="10" Width="100" x:Name="Calc_butt" Click="Calc_butt_Click"/>
+    </StackPanel>
+</Window>

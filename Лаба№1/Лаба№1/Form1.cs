@@ -22,5 +22,6 @@ namespace Лаба_1
             Form2 frm = new Form2();
             frm.ShowDialog();
         }
+
     }
 }

@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto">
+            </RowDefinition>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Slider Name="sldSourse" Value="14" Maximum="80" Minimum="1"
+                TickFrequency="6" TickPlacement="Both" Grid.Row="0"
+                Margin="5" AutoToolTipPlacement="TopLeft"/>
+        <TextBlock Name="txtTarget" Text="Example" Grid.Row="1"
+                   TextAlignment="Center" VerticalAlignment="Center"
+                   FontSize="{Binding ElementName=sldSourse, Path=Value}" Foreground="Red"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <Button Name="btnNormal" Content="Нормальный размер" Margin="5" Width="150" Click="btnNormal_Click"/>
+            <Button Name="btnLarge" Content="Крупный размер" Margin="5" Width="150" Click="btnLarge_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
