@@ -25,14 +25,14 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void btnNormal_Click(object sender, RoutedEventArgs e)
+        private void btnChangeColor_Click(object sender, RoutedEventArgs e)
         {
-            sldSourse.Value= 30;
-        }
-
-        private void btnLarge_Click(object sender, RoutedEventArgs e)
-        {
-
+            byte a = Convert.ToByte(aValueSrc.Value),
+                r = Convert.ToByte(rValueSrc.Value),
+                g = Convert.ToByte(gValueSrc.Value),
+                b = Convert.ToByte(bValueSrc.Value);
+            rct.Fill = new SolidColorBrush(Color.FromArgb(a, r, g, b));
+            txtDestination.Foreground=new SolidColorBrush(Color.FromArgb(a, r, g, b));
         }
     }
 }

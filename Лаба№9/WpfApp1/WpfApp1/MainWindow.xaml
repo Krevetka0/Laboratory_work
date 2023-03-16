@@ -5,22 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="500">
+        Title="Pract_20" Height="470" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto">
-            </RowDefinition>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="170"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Slider Name="sldSourse" Value="14" Maximum="80" Minimum="1"
-                TickFrequency="6" TickPlacement="Both" Grid.Row="0"
-                Margin="5" AutoToolTipPlacement="TopLeft"/>
-        <TextBlock Name="txtTarget" Text="Example" Grid.Row="1"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <!--0-->
+        <Label Grid.Column="0" Grid.Row="0" Content="Прозрачность"/>
+        <Slider Name="aValueSrc" Value="255" Maximum="255" Minimum="0"
+                TickFrequency="6" TickPlacement="Both" AutoToolTipPlacement="TopLeft"
+                Grid.Column="1" Grid.Row="0"/>
+        <!--1-->
+            <Label Grid.Column="0" Grid.Row="1" Content="Размер"/>
+        <Slider Name="sldSourse" Value="5" Maximum="40" Minimum="0" Grid.Row="1" Grid.Column="1" Margin="5" AutoToolTipPlacement="TopLeft"/>
+        <!--2-->
+        <Label Grid.Column="0" Grid.Row="2" Content="Красный"/>
+        <Slider Name="rValueSrc" Value="14" Maximum="255" Minimum="0"
+                TickFrequency="6" TickPlacement="Both" AutoToolTipPlacement="TopLeft"
+                Grid.Column="1" Grid.Row="2"/>
+        <!--3-->
+        <Label Grid.Column="0" Grid.Row="3" Content="Зелёный"/>
+        <Slider Name="gValueSrc" Value="14" Maximum="255" Minimum="0"
+                TickFrequency="6" TickPlacement="Both" AutoToolTipPlacement="TopLeft"
+                Grid.Column="1" Grid.Row="3"/>
+        <!--4-->
+        <Label Grid.Column="0" Grid.Row="4" Content="Синий"/>
+        <Slider Name="bValueSrc" Value="14" Maximum="255" Minimum="0"
+                TickFrequency="6" TickPlacement="Both" AutoToolTipPlacement="TopLeft"
+                Grid.Column="1" Grid.Row="4"/>
+        <!--кнопа-->
+        <Button Grid.Column="0" Grid.Row="5" Margin="10" Click="btnChangeColor_Click">Изменить цвет</Button>
+        <!--Прямоугольник-->
+        <Border Grid.Row="5" Grid.Column="1"  BorderThickness="1" BorderBrush="Black" Margin="{Binding Value, ElementName=sldSourse}" Padding="{Binding Margin, RelativeSource={RelativeSource Self}}" >
+            <Rectangle Name="rct" Fill="Gray"/>
+        </Border>
+        <!--Текст+шрифты-->
+        <ListBox Name="fontFamilySrc" Grid.Column="0" Grid.Row="6" Width="150" Height="Auto" SelectedIndex="0">
+            <ListBoxItem Content="Times New Roman" Tag="Times New Roman"/>
+            <ListBoxItem Content="Arial" Tag="Arial"/>
+            <ListBoxItem Content="Comic Sans MS" Tag="Comic Sans MS"/>
+        </ListBox>
+        <TextBlock Name="txtDestination" Grid.Column="1" Grid.Row="6"
                    TextAlignment="Center" VerticalAlignment="Center"
-                   FontSize="{Binding ElementName=sldSourse, Path=Value}" Foreground="Red"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
-            <Button Name="btnNormal" Content="Нормальный размер" Margin="5" Width="150" Click="btnNormal_Click"/>
-            <Button Name="btnLarge" Content="Крупный размер" Margin="5" Width="150" Click="btnLarge_Click"/>
-        </StackPanel>
+                   Text="Сотри меня" FontSize="{Binding Value, ElementName=sldSourse}"
+                   FontFamily="{Binding ElementName=fontFamilySrc, Path=SelectedItem.Tag}"/>
+        <!--Поля, показывающие текущее значение параметров текста. Позволяют изменять их в ручную-->
+        <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding Value, ElementName=sldSourse, Mode=TwoWay}"/>
+        <TextBox Grid.Column="2" Grid.Row="0" Text="{Binding Value, ElementName=aValueSrc, Mode=TwoWay}"/>
+        <TextBox Grid.Column="2" Grid.Row="2" Text="{Binding Value, ElementName=rValueSrc, Mode=TwoWay}"/>
+        <TextBox Grid.Column="2" Grid.Row="3" Text="{Binding Value, ElementName=gValueSrc, Mode=TwoWay}"/>
+        <TextBox Grid.Column="2" Grid.Row="4" Text="{Binding Value, ElementName=bValueSrc, Mode=TwoWay}"/>
     </Grid>
 </Window>
